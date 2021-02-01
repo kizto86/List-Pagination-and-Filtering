@@ -3,11 +3,27 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
+//var x = document.getElementById("myDIV").querySelectorAll("h3");
+
+//let h3 = document.querySelectorAll(".student-details")[0];
+
+/*let names = document.getElementsByClassName("student-details");
+
+for (let i = 0; i < names.length; i++) {
+  names[i].style.backgroundColor = "red";
+}*/
+
+/*let studentNames = document.querySelectorAll("h3");
+for (let i = 0; i < studentNames.length; i++) {
+  studentNames[i].style.backgroundColor = "red";
+}*/
 /**
  * Select the parent element of the list items and assigning it to a constant
  */
 
 const listUl = document.querySelectorAll(".student-list")[0];
+
+console.log(listUl);
 
 /**
  * select the children element and assigning it to a constant
@@ -138,3 +154,68 @@ Looping over the page and creating the li and link tag
 };
 
 appendPageLinks();
+
+//search field
+/*const searchInput = document.createElement("input");
+searchInput.setAttribute("type", "text");
+searchInput.setAttribute("id", "search-input");
+searchInput.setAttribute("class", "student-search");
+searchInput.placeholder = "Type name here....";
+const searchDiv = document.getElementsByClassName("page-header cf")[0];
+searchDiv.appendChild(searchInput);
+
+const search = document.getElementById("search-input");
+
+const searchField = (inputElement, names) => {
+  for (let i = 0; i < names.length; i++) {
+    if (
+      inputElement.value.length !== 0 &&
+      names[i].textContent
+        .toLowerCase()
+        .includes(inputElement.value.toLowerCase())
+    ) {
+    }
+  }
+};
+
+var button = document.createElement("BUTTON");
+button.innerHTML = "search";
+button.setAttribute("class", "student-search");
+searchDiv.appendChild(button);
+
+button.addEventListener("click", event => {
+  searchField(searchInput, studentNames);
+  console.log("hello");
+});*/
+
+//create element function
+const createElement = elementType => {
+  const element = document.createElement(elementType);
+  return element;
+};
+
+let studentNames = document.querySelectorAll("h3");
+//dom element creation
+const searchDiv = createElement("div");
+searchDiv.className = "student-search";
+const inputElement = createElement("input");
+inputElement.placeholder = "Search for student....";
+const button = createElement("button");
+button.textContent = "Search";
+//append element
+const searchAnchor = document.querySelector("h2").parentNode;
+searchAnchor.appendChild(searchDiv);
+searchDiv.appendChild(inputElement);
+searchDiv.appendChild(button);
+
+const searchField = (inputElement, names) => {
+  for (let i = 0; i < names.length; i++) {
+    if (
+      inputElement.value.length !== 0 &&
+      names[i].textContent
+        .toLowerCase()
+        .includes(inputElement.value.toLowerCase())
+    ) {
+    }
+  }
+};
